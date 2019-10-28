@@ -89,6 +89,20 @@ export const constantRoutes = [
       },
     ]
   },
+  {
+    path: '/edit',
+    component: Layout,
+    redirect: '/edit/editInfor',
+    name: 'Example',
+    hidden: true,
+    children:[
+      {
+        path: 'editInfor',
+        name: 'editInfor',
+        component: () => import('@/views/infor/edit')
+      },
+    ]
+  },
 ]
 
 /**

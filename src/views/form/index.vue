@@ -1,10 +1,18 @@
 <template>
   <div id="app1">
+    <div style=" overflow:hidden; ">
+      <div style="float:right;">
+          <el-button>添加</el-button>
+          <el-button @click="$router.push({path:'/edit/editInfor'})">修改</el-button>
+      </div>
+    </div>
+    <div>
       <form-create 
         v-model="fApi" 
         :rule="rule" 
         :option="option"
       ></form-create>
+    </div>
   </div>
 </template>
 
@@ -23,7 +31,8 @@ export default {
           title:'商品名称',
            col:{
 		        	span:12
-	      	}  
+          },
+          children:[] 
         },
         {
           type: "select",
@@ -57,10 +66,16 @@ export default {
         global: {
           '*': {
               props: {
-                  disabled: true
-              }
+                  // disabled: true
+              },
+             
           }
-       }
+       },
+        on:{
+                click(e){
+                  console.log(e);
+                }
+              }
       },
     };
   },
